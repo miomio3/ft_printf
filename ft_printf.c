@@ -1,15 +1,5 @@
 #include "ft_printf.h"
 
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while(*s++)
-		i++;
-	return (i);
-}
-
 static void	ft_uputnbr(int u)
 {
 	if(u < 0)

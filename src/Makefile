@@ -1,15 +1,13 @@
 
-NAME = libftprintf.a
+NAME = libft.a
 CC = gcc
 FLUG = -Wall -Wextra -Werror
-SRC = ft_printf.c
+SRC = ft_putchar.c ft_putnbr.c ft_putstr.c ft_puthem.c
 OBJ = $(SRC:.c=.o)
 MAKE = make
 
 all			:$(NAME)
 $(NAME)		:$(OBJ)
-	$(MAKE) -C ./src
-	cp src/libft.a $(NAME)
 	ar -cr $(NAME) $(OBJ)
 %.o			:%.c
 	$(CC) $(FLUG) -c $<
