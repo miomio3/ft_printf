@@ -2,7 +2,7 @@
 NAME = libft.a
 CC = gcc
 FLUG = -Wall -Wextra -Werror
-SRC = ft_putchar.c ft_putnbr.c ft_putstr.c ft_puthem.c
+SRC = ft_putchar.c ft_putnbr.c ft_putstr.c ft_puthem.c ft_strlen.c
 OBJ = $(SRC:.c=.o)
 MAKE = make
 
