@@ -2,6 +2,6 @@
 
 int main(void)
 {
-	ft_printf("abc%c%c", 'd', 'e');
+	ft_printf("%u", 2147483648);
 	return (0);
 }

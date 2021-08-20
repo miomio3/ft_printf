@@ -8,5 +8,8 @@
 
 void	ft_putchar(int c);
 int		ft_printf(const char *format, ...);
+void	ft_putnbr(int nbr);
+void	ft_putstr(char *s);
+size_t	ft_strlen(const char *s);
 
 #endif
