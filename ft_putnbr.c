@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-void	ft_putnbr(int nbr)
+void	ft_putnbr(long nbr)
 {
 	int	sign;
 
