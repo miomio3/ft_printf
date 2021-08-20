@@ -10,6 +10,13 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
+static void	ft_uputnbr(int u)
+{
+	if(u < 0)
+			return;
+	ft_putnbr(u);
+}
+
 static	void	put_args(char format, va_list *args)
 {
 	int	u;
@@ -27,9 +34,7 @@ static	void	put_args(char format, va_list *args)
 	else if(format == 'u')
 	{
 		u = va_arg(*args, int);
-		if(u < 0)
-			return;
-		ft_putnbr(u);
+		ft_uputnbr(u);
 	}
 }
 
