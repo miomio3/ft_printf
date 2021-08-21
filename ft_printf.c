@@ -1,57 +1,70 @@
 #include "ft_printf.h"
 
-static void	ft_uputnbr(int u)
+static int	ft_uputnbr(unsigned int u)
 {
-	if(u < 0)
-			return;
-	ft_putnbr(u);
+	int	len;
+
+	len = 0;
+	ft_putnbr(u, &len);
+	return (len);
 }
 
-static void	ft_putadd(void *p)
+static int	ft_putadd(void *p)
 {
-	long add;
+	int	len;
+	unsigned long add;
 
-	ft_putstr("0x");
-	add = (long)&*p;
-	ft_puthem(add);
+	len = ft_putstr("0x");
+	add = (unsigned long)&*p;
+	ft_puthem(add, &len);
+	return (len);
 }
 
-static	void	put_args(char format, va_list *args)
+static	int	put_args(char format, va_list *args)
 {
+	int	len;
+
+	len = 0;
 	if(format == 'c')
-		ft_putchar(va_arg(*args, int));
+		len = ft_putchar(va_arg(*args, int));
 	else if(format == 'd')
-		ft_putnbr(va_arg(*args, int));
+		ft_putnbr(va_arg(*args, int), &len);
 	else if(format == 's')
-		ft_putstr(va_arg(*args, char *));
+		len = ft_putstr(va_arg(*args, char *));
 	else if(format == 'i')
-		ft_putnbr(va_arg(*args, int));
+		len = ft_putnbr(va_arg(*args, int), &len);
 	else if(format == '%')
-		ft_putchar('%');
+		len = ft_putchar('%');
 	else if(format == 'u')
-		ft_uputnbr(va_arg(*args, int));
+		len = ft_uputnbr(va_arg(*args, unsigned int));
 	else if(format == 'p')
-		ft_putadd(va_arg(*args, void*));
+		len = ft_putadd(va_arg(*args, void*));
 	else if(format == 'x')
-		ft_puthem(va_arg(*args, long));
+		len = ft_puthem(va_arg(*args, unsigned long), &len);
+	return (len);
 }
 
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
+	int		len;
 
+	len = 0;
 	va_start(args, format);
 	while (*format)
 	{
 		if(*format == '%')
 		{
 			format++;
-			put_args(*format, &args);
+			len = len + put_args(*format, &args);
 		}
 		else
+		{
+			len++;
 			ft_putchar(*format);
+		}
 		format++;
 	}
 	va_end(args);
-	return (1);
+	return (len);
 }

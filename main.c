@@ -2,12 +2,11 @@
 
 int main(void)
 {
-	char p;
-	//ft_printf("%p\n", &p);
-	//printf("%p\n", &p);
-	ft_printf("%d\n", 199999);
-	printf("%d\n", 199999);
-	ft_printf("%d\n", 2147483647);
-	printf("%d\n", 2147483647);
+	printf("%d\n", ft_printf("%u\n", -1));
+	printf("%d\n", printf("%u\n", -1));
+	printf("%d\n", ft_printf("%u\n", LONG_MAX));
+	printf("%d\n", printf("%ld\n", LONG_MAX));
+	printf("%d\n", ft_printf("%u\n", LONG_MIN));
+	printf("%d\n", printf("%ld\n", LONG_MIN));
 	return (0);
 }

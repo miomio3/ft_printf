@@ -6,10 +6,10 @@
 #include <stdarg.h>
 #include <unistd.h>
 
-void	ft_putchar(int c);
-void	ft_putnbr(long nbr);
-void	ft_putstr(char *s);
-size_t	ft_strlen(const char *s);
-void	ft_puthem(long args);
+int	ft_putchar(int c);
+int	ft_putnbr(long nbr, int *len);
+int	ft_putstr(char *s);
+int	ft_strlen(const char *s);
+int	ft_puthem(unsigned long args, int *len);
 
 #endif
